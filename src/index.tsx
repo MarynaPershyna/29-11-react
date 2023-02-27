@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Title from './Title'
+import { Title } from './Title'
 
 // const title = React.createElement(
 //   'h1',
