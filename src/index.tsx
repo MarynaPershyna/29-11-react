@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { Title } from './Title'
+import Title from './Title'
 
 // const title = React.createElement(
 //   'h1',
@@ -125,7 +125,7 @@ import { Title } from './Title'
 // root.render(<React.StrictMode>{<App />}</React.StrictMode>)
 
 
-//========
+//========Експорт=====
 
 
  
@@ -152,7 +152,8 @@ import { Title } from './Title'
   const App = () => {
     return (
         <>
-            <Title />
+            <Title title="React" year = {2022}/>
+            <Title title = "App" year = {2022} />
             <Content />
         </>
     )
