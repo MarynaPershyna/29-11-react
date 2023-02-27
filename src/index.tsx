@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import Title from './Title'
 
 // const title = React.createElement(
 //   'h1',
@@ -127,7 +128,35 @@ import ReactDOM from 'react-dom/client'
 //========
 
 
-
+ 
+  
+  const Content = () => {
+    return (
+        <React.Fragment>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
+                expedita placeat, nisi consequuntur esse, nesciunt natus
+                distinctio officia quisquam praesentium dolorum veniam porro
+                doloribus autem! Sequi possimus unde quasi. Tenetur!
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Laboriosam a eum doloribus numquam, voluptas, aspernatur ipsam
+                assumenda vitae inventore, ut recusandae ducimus delectus porro
+                rerum reiciendis accusantium impedit excepturi totam.
+            </p>
+            </React.Fragment>
+    )
+  }
+  
+  const App = () => {
+    return (
+        <>
+            <Title />
+            <Content />
+        </>
+    )
+  }
 
 
 
