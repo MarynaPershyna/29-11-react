@@ -5,7 +5,9 @@ interface TitleProps {
 }
 
 
-const Title = (props: TitleProps) => {
-    return <h1>Hello {props.title}, Year: {props.year}</h1>
+const Title = ({ title, year }: TitleProps) => {
+    return <h1>
+        Hello {title}, Year: {year}
+        </h1>
 }
 export default Title
