@@ -9,33 +9,39 @@ import { Container } from '@mui/material'
 
 type Props = {}
 const Header = (props: Props) => {
+  const home = false
     return (
-        <AppBar position="static" 
-        style={{
-          backgroundColor: 'green',
-        }}>
-          <Container>
-          <Toolbar>
-                <IconButton
-                    size="large"
-                    edge="start"
-                    color="inherit"
-                    aria-label="menu"
-                    sx={{ mr: 2 }}
-                >
-                    <MenuIcon />
-                </IconButton>
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                    News
-                </Typography>
-                <Button color="inherit">Home</Button>
-                <Button color="inherit">About</Button>
-                <Button color="inherit">Payment</Button>
-                <Button color="inherit">Shipping</Button>
-                <Button color="inherit">Cart</Button>
-            </Toolbar>
-          </Container>
-            
+        <AppBar
+            position="static"
+            style={{
+                backgroundColor: home ? 'purple' : 'green',
+            }}
+        >
+            <Container>
+                <Toolbar>
+                    <IconButton
+                        size="large"
+                        edge="start"
+                        color="inherit"
+                        aria-label="menu"
+                        sx={{ mr: 2 }}
+                    >
+                        <MenuIcon />
+                    </IconButton>
+                    <Typography
+                        variant="h6"
+                        component="div"
+                        sx={{ flexGrow: 1 }}
+                    >
+                        News
+                    </Typography>
+                    <Button color="inherit">Home</Button>
+                    <Button color="inherit">About</Button>
+                    <Button color="inherit">Payment</Button>
+                    <Button color="inherit">Shipping</Button>
+                    <Button color="inherit">Cart</Button>
+                </Toolbar>
+            </Container>
         </AppBar>
     )
 }
