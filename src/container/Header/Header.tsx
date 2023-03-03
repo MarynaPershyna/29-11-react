@@ -5,12 +5,14 @@ import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
+import { Container } from '@mui/material'
 
 type Props = {}
 const Header = (props: Props) => {
     return (
         <AppBar position="static">
-            <Toolbar>
+          <Container>
+          <Toolbar>
                 <IconButton
                     size="large"
                     edge="start"
@@ -25,6 +27,8 @@ const Header = (props: Props) => {
                 </Typography>
                 <Button color="inherit">Login</Button>
             </Toolbar>
+          </Container>
+            
         </AppBar>
     )
 }
