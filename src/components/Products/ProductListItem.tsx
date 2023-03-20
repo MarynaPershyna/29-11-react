@@ -20,12 +20,14 @@ type Props = {
 type State = {
     count: number
     color: string
+    show: boolean
 }
 
 class ProductListItem extends Component<Props, State> {
     state = {
         count: 1,
-        color: "green",
+        color: 'green',
+        show: false,
     }
 
     onIncrementClick = () => {
@@ -39,8 +41,13 @@ class ProductListItem extends Component<Props, State> {
         }))
     }
     changeColor = () => {
-        this.setState( (prevState) => ({
+        this.setState((prevState) => ({
             color: prevState.color === 'green' ? 'red' : 'green',
+        }))
+    }
+    toggleDesc = () => {
+        this.setState((prevState) => ({
+            show: !prevState.show,
         }))
     }
 
@@ -61,13 +68,25 @@ class ProductListItem extends Component<Props, State> {
                     <div className="product-price">
                         Price: <strong>${price}</strong>
                     </div>
-                    <p>
+                    {/* <p>
                         Color:{' '}
                         <span className={this.state.color}>
                             {this.state.color}
                         </span>
                     </p>
-                    <button onClick={this.changeColor}>Change color</button>
+                    <button onClick={this.changeColor}>Change color</button> */}
+
+                    {this.state.show ? (
+                        <p>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing
+                            elit. Aliquid suscipit sapiente distinctio praesentium,
+                            laborum laudantium rerum excepturi ea, porro labore esse
+                            veritatis consectetur nisi. Exercitationem labore
+                            pariatur consequatur omnis eius?
+                        </p>
+                    ) : null}
+                    
+                    <button onClick={() => this.toggleDesc()}>Show discription</button>
                     <div className="product-quantity">
                         <Button
                             variant="outlined"
