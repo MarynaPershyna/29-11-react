@@ -1,4 +1,3 @@
-
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 import IconButton from '@mui/material/IconButton'
@@ -9,8 +8,12 @@ import Logo from 'components/Logo/Logo'
 import Menu from 'components/Menu/Menu'
 import CartHeader from 'components/CartHeader/CartHeader'
 
-type Props = {}
-const Header = (props: Props) => {
+type Props = {
+    productsInCart: {
+        [id: number]: number
+    }
+}
+const Header = ({ productsInCart }: Props) => {
     return (
         <AppBar position="static" className="app-bar">
             <Container>
@@ -24,9 +27,9 @@ const Header = (props: Props) => {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Logo/>
-                    <Menu/>
-                    <CartHeader/>
+                    <Logo />
+                    <Menu />
+                    <CartHeader productsInCart={productsInCart} />
                 </Toolbar>
             </Container>
         </AppBar>
