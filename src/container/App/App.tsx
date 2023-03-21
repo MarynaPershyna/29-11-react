@@ -18,7 +18,8 @@ const App = (props: Props) => {
     })
 
     const addProductToCart = (id:number,count:number) => {
-        setProductsInCsart((prevState) => Object.assign({},prevState,{
+        setProductsInCsart((prevState) => ({
+            ...prevState,
             [id]: prevState[id] + count,
         }))
     }
