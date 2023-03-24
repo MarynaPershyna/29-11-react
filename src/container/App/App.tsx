@@ -8,19 +8,19 @@ import { useState } from 'react'
 type Props = {}
 
 type ProductsInCartType = {
-    [id:number]:number
+    [id: number]: number
 }
 
 const App = (props: Props) => {
-    const [productsInCart,setProductsInCsart] = useState<ProductsInCartType>({
-        1: 5,
-        2: 5,
+    const [productsInCart, setProductsInCsart] = useState<ProductsInCartType>({
+        // 1: 5,
+        // 2: 5,
     })
 
-    const addProductToCart = (id:number,count:number) => {
+    const addProductToCart = (id: number, count: number) => {
         setProductsInCsart((prevState) => ({
             ...prevState,
-            [id]: prevState[id] + count,
+            [id]: (prevState[id] || 0) + count,
         }))
     }
 
@@ -28,7 +28,6 @@ const App = (props: Props) => {
         <StyledEngineProvider injectFirst>
             <CssBaseline />
             <Header productsInCart={productsInCart} />
-            <button onClick={() => addProductToCart(2, 5)}>Add to cart (2,5)</button>
             <Main addProductToCart={addProductToCart} />
             <Footer />
         </StyledEngineProvider>

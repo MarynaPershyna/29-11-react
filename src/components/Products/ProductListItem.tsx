@@ -9,26 +9,27 @@ import { useState } from 'react'
 import './ProductListItem.scss'
 
 type Props = {
+    id: number
     title: string
     description: string
     type: string
     capacity: string
     price: number
     image: string
-    addProductToCart: (count: number, price: number) => void
+    addProductToCart: (id: number, count: number) => void
 }
 
 const ProductListItem = ({
+    id,
     title,
     description,
     type,
     capacity,
     price,
     image,
-    addProductToCart
+    addProductToCart,
 }: Props) => {
     const [count, setCount] = useState<number>(1)
-    
 
     const onIncrement = () => {
         setCount((prevState) => prevState + 1)
@@ -36,8 +37,6 @@ const ProductListItem = ({
     const onDecrement = () => {
         setCount((prevState) => prevState - 1)
     }
-
-
 
     return (
         <Card variant="outlined" className="product">
@@ -52,7 +51,7 @@ const ProductListItem = ({
                 <div className="product-price">
                     Price: <strong>${price}</strong>
                 </div>
-                
+
                 <div className="product-quantity">
                     <Button
                         variant="outlined"
@@ -68,7 +67,12 @@ const ProductListItem = ({
                 </div>
 
                 <CardActions className="btns-wrap">
-                    <Button variant="outlined" onClick={() => addProductToCart(count, price)}>Add to cart</Button>
+                    <Button
+                        variant="outlined"
+                        onClick={() => addProductToCart(id, count)}
+                    >
+                        Add to cart
+                    </Button>
                 </CardActions>
             </CardContent>
         </Card>
