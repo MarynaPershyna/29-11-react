@@ -13,8 +13,8 @@ type ProductsInCartType = {
 
 const App = (props: Props) => {
     const [productsInCart, setProductsInCsart] = useState<ProductsInCartType>({
-        // 1: 5,
-        // 2: 5,
+        1: 5,
+        2: 5,
     })
 
     const addProductToCart = (id: number, count: number) => {
