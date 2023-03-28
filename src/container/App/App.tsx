@@ -15,22 +15,30 @@ type ProductsInCartType = {
 }
 
 const App = (props: Props) => {
-    const [productsInCart, setProductsInCsart] = useState<ProductsInCartType>({
+    const [productsInCart, setProductsInCart] = useState<ProductsInCartType>({
         1: 5,
         2: 5,
     })
 
     const addProductToCart = (id: number, count: number) => {
-        setProductsInCsart((prevState) => ({
+        setProductsInCart((prevState) => ({
             ...prevState,
             [id]: (prevState[id] || 0) + count,
         }))
+    }
+    const removeProductFromCart = (id: number) => {
+        setProductsInCart((prevState) => {
+            let prevProductsInCart = { ...prevState }
+            delete prevProductsInCart[id]
+            return prevProductsInCart
+        })
     }
 
     return (
         <StyledEngineProvider injectFirst>
             <CssBaseline />
             <Header productsInCart={productsInCart} />
+            
             <Container
                 sx={{
                     padding: '40px 0',
@@ -41,7 +49,11 @@ const App = (props: Props) => {
                         path="/"
                         element={<Home addProductToCart={addProductToCart} />}
                     />
-                    <Route path='/cart' element={<CartPage productsInCart={productsInCart}/>}/>
+                    <Route
+                        path="/cart"
+                        element={<CartPage productsInCart={productsInCart}
+                        removeProductFromCart={removeProductFromCart}/>}
+                    />
                 </Routes>
             </Container>
 
