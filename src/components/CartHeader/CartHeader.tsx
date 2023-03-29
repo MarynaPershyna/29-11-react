@@ -4,6 +4,7 @@ import CartTotal from 'components/CartTotal/CartTotal'
 type Props = {
     productsInCart: {
         [id: number]: number
+        
     }
 }
 const CartHeader = ({ productsInCart }: Props) => {

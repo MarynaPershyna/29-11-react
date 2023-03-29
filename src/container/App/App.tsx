@@ -31,11 +31,18 @@ const App = (props: Props) => {
         setProductsInCart((prevState) => omit(prevState, id))
     }
 
+    const changeProductQuantity = (id: number, count: number) => {
+        setProductsInCart((prevState) => ({
+            ...prevState,
+            [id]: count,
+        }))
+    }
+
     return (
         <StyledEngineProvider injectFirst>
             <CssBaseline />
             <Header productsInCart={productsInCart} />
-            
+
             <Container
                 sx={{
                     padding: '40px 0',
@@ -48,8 +55,13 @@ const App = (props: Props) => {
                     />
                     <Route
                         path="/cart"
-                        element={<CartPage productsInCart={productsInCart}
-                        removeProductFromCart={removeProductFromCart}/>}
+                        element={
+                            <CartPage
+                                productsInCart={productsInCart}
+                                removeProductFromCart={removeProductFromCart}
+                                changeProductQuantity={changeProductQuantity}
+                            />
+                        }
                     />
                 </Routes>
             </Container>
